@@ -1,12 +1,12 @@
-# Overview of Docker Features
+# Overview of :whale2:Docker Features
 
 Short descrition of features with quick links to deep dives.
 
 ## Docker Desktop
 
-Docker Desktop:registered: is the company name that also created the technology.
+Docker Desktop is the company name that also created the technology.
 
-Docker Desktop:registered: is the software from Docker:registered: that contains 
+Docker Desktop is the software from Docker that contains 
 all the services needed to develop containers.
 
 :point_right: :link: [Docker Desktop Installer](https://docs.docker.com/desktop/windows/install/] 'Docker Desktop Installer')
@@ -15,21 +15,21 @@ all the services needed to develop containers.
 
 ### Images
 
-A Docker:registered: image is like a zip file that contains an operating system and a single executable ready to be run.
+A Docker image is like a zip file that contains an operating system and a single executable ready to be run.
 
 :point_right: :link: [Docker Images](Images.md) 'Docker images')
 
 ### Containers
 
-A Docker:registered: container is a running version of an image.
+A Docker container is a running version of an image.
 
-Creating a container is similar to a process. Multiple processes can be started from a single executable file and multiple containers can be created from a single Docker:registered: image.
+Creating a container is similar to a process. Multiple processes can be started from a single executable file and multiple containers can be created from a single Docker image.
 
 :point_right: :link: [Docker containers](Containers.md] 'Docker containers')
 
 ### Volumes
 
-A Volume is like a USB Stick. In this case Volumes can be mounted in Docker:registered: containers in case the processes living in the containers need to interact with the files in the volumes. 
+A Volume is like a USB Stick. In this case Volumes can be mounted in Docker containers in case the processes living in the containers need to interact with the files in the volumes. 
 
 :point_right: :link: [Docker volumes](Containers.md] 'Docker volumes')
 

@@ -1,8 +1,8 @@
-# :cd: Docker:registered: Images
+# :cd: Docker Images
 
-## :neckbeard: Oldschool System Images
+## :older_man: Oldschool System Images
 
-A Docker:registered::whale2: `image`:cd: is similar to a `system image`:cd:. 
+A **Docker**:whale2: `image`:cd: is similar to a `system image`:cd:. 
 
 A system image is a copy of the `operating system`:penguin: and its `configuration`, bundled into a `file`:file_folder:, that can later be overwritten to a `disk`.
 
@@ -10,15 +10,15 @@ A system image is a copy of the `operating system`:penguin: and its `configurati
 
 ## :arrow_forward: Enter Docker
 
-A Docker:registered: image:cd: is a stipped version of a :point_right:system image:cd:. 
+A **Docker** image:cd: is a stipped version of a :point_right:system image:cd:. 
 
 The removed components are unnecessary `executables` and `DLLs` and other `files` thus making the image a smaller `filesize`.
 
-The term `'image'` is independent of the company named Docker:registered::whale2:. 
+The term `'image'` is independent of the company named **Docker**:whale2:. 
 
-These `images` can be created with Docker:registered: `tools`:hammer: or any other types of tools that can create :point_right:**Container Runtime Interface** compliant images. 
+These `images` can be created with **Docker** `tools`:hammer: or any other types of tools that can create :point_right:**Container Runtime Interface** compliant images. 
 
-These `images` can be `deployed` on both Docker:registered: Engine and **Kubernetes**:registered:.
+These `images` can be `deployed` on both *Docker* Engine and **Kubernetes**.
 
 ## :birthday: Docker Cakes
 
@@ -33,14 +33,14 @@ These `images`, although they can be used to create `containers`:arrows_counterc
 To make the `container` useful we add a new `layer`, which contains our `application` and we create a new `image` on top of the `base layer`.
 
 An `image` that contains both the **ASP.Net** `runtime` and our **ASP.Net** `WebApplication`.
-This type of image is the intended product for which Docker:registered: was created. :balloon::smile:
+This type of image is the intended product for which **Docker** was created. :balloon::smile:
 
 ----
 There are many `base images` that can be used to support an `application`. 
 
 :point_right:  **Dotnet** runtimes, **NodeJs** runtimes, **Python** runtimes, etc.
 
-There are also `services` as Docker:registered: `images` that can be used immediately.
+There are also `services` as **Docker** `images` that can be used immediately.
 
 :point_right: **Sql Server** 2019, **Redis**, **ElasticSearch**, etc.
 
@@ -49,10 +49,10 @@ There are also `services` as Docker:registered: `images` that can be used immedi
 
 ### :point_left: Pulling an Image :cd:
 
-Docker:registered: Desktop installs a `CLI` tool called DockerCLI:registered: that 
-it is used for most operations with Docker:registered::whale2:.
+**Docker Desktop** installs a `CLI` tool called **DockerCLI** that 
+it is used for most operations with **Docker**:whale2:.
 
-`Images` live in `registries`:scroll:. Docker:registered: Desktop installs a `local registry`.
+`Images` live in `registries`:scroll:. **Docker Desktop** installs a `local registry`.
 
 To view `images` in the `local registry`:
 ```
@@ -148,7 +148,7 @@ docker image tag myService:1 myPrivateRegistry/myService:1
 docker image push myPrivateRegistry/myService:1
 ```
 Notice that we have prefixed the `image` name with the name of the `registry`. 
-Whenever an `image` contains a `/` in the name, Docker:registered: will interpret the `string` before the `/` as the name of a `registry`. 
+Whenever an `image` contains a `/` in the name, **Docker** will interpret the `string` before the `/` as the name of a `registry`. 
 
 ### :floppy_disk: Save the state of a running container
 
