@@ -4,8 +4,8 @@
 
 A **Docker**:whale2: `container`:package: is similar to a `virtual machine`:computer:.
 
-A **Docker**:whale2: `container`:package: is a running form of a Docker:whale2: `image` just like a 'virtual machine' is 
-a running form of a 'system image'.
+A **Docker**:whale2: `container`:package: is a running form of a Docker:whale2: `image` just like a `virtual machine` is 
+a running form of a `system image`.
 
 On Linux, docker containers use [OS-Level Virtualization](https://en.wikipedia.org/wiki/OS-level_virtualization).
 
