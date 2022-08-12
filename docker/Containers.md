@@ -78,6 +78,10 @@ docker inspect <container id>
 ```
 docker stats <container id>
 ```
+:x:Pruning(Remove all stopped containers):
+```
+docker container prune
+```
 
 ## :whale2: Deep Dive!
 
