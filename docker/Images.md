@@ -1,6 +1,6 @@
 # :cd: Docker Images
 
-## :older_man: Oldschool System Images
+## :older_man: Classic System Images
 
 A **Docker**:whale2: `image`:cd: is similar to a `system image`:cd:. 
 
@@ -20,7 +20,7 @@ These `images` can be created with **Docker** `tools`:hammer: or any other types
 
 These `images` can be `deployed` on both *Docker* Engine and **Kubernetes**.
 
-## :birthday: Docker Cakes
+## :birthday: Docker Pancakes
 
 `Images` are layered:books: and therefore new versions of an image can be created by adding `files` to an existing `image`.
 
@@ -44,7 +44,7 @@ There are also `services` as **Docker** `images` that can be used immediately.
 
 :point_right: **Sql Server** 2019, **Redis**, **ElasticSearch**, etc.
 
-
+---
 ## :blue_book: Commands
 
 ### :point_left: Pulling an Image :cd:
@@ -52,7 +52,7 @@ There are also `services` as **Docker** `images` that can be used immediately.
 **Docker Desktop** installs a `CLI` tool called **DockerCLI** that 
 it is used for most operations with **Docker**:whale2:.
 
-`Images` live in `registries`:scroll:. **Docker Desktop** installs a `local registry`.
+`Images` live in `registries`:scroll:. **Docker Desktop** installs a `local registry` also.
 
 To view `images` in the `local registry`:
 ```
