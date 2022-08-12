@@ -2,6 +2,8 @@
 
 Short descrition of features with quick links to deep dives.
 
+For quick commands check cheat sheet here :point_right: [Cheat Sheet](Cheatsheet.md) 
+
 ## Docker Desktop
 
 Docker Desktop is the company name that also created the technology.
@@ -9,7 +11,7 @@ Docker Desktop is the company name that also created the technology.
 Docker Desktop is the software from Docker that contains 
 all the services needed to develop containers.
 
-:point_right: :link: [Docker Desktop Installer](https://docs.docker.com/desktop/windows/install/] 'Docker Desktop Installer')
+:point_right: :link:[Docker Desktop Installer](https://docs.docker.com/desktop/windows/install/)
 
 ## Basic Topics
 
