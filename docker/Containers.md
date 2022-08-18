@@ -160,7 +160,7 @@ The first number is the `port` on the `localhost` and the second number is the `
 
 Example:
 ```
-docker run 8080:80 nginx
+docker run -p 8080:80 nginx
 ```
 
 `8080` is the `port` that will be available locally at `127.0.0.1:8080`.
