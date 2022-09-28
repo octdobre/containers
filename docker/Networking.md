@@ -11,7 +11,7 @@ the possibility to do alot of things with networking.
 ## :abacus: Network Types
 
 ### Bridge 
-* Docker comes with a default enclosed network called "bridge" which is of type `bridge`, ironic.
+* Docker comes with a default enclosed network type `bridge` which is named also "bridge".
 * Ports must be exposed for ingress to containers
 * Containers have full egress access
 * :exclamation: Containers are automatically assigned to the bridge network if no network flag is specified :exclamation:
@@ -41,6 +41,7 @@ docker run -d -p 9000:8000 \
 ```
 ---
 ### Host 
+* Type Host
 * The container behaves like a service on the host computer
 * Ports do not need to be exposed, but must be free otherwise it will not be able to bind them
 
@@ -51,6 +52,7 @@ docker run -d  --network host  portainer/portainer-ce:latest
 
 ---
 ### MAC VLAN
+* Type macvlan
 * The container behaves as a complete new computer on the network
 * It receives a IP and MAC from the phisical router
 * The network card and router/switch must support promiscuous mode, multiple mac addresses on one network port
@@ -73,6 +75,9 @@ docker network create -d macvlan \
 ```
 ---
 ### IP VLAN
+
+* Type ipvlan
+
 #### Layer 2
 * Like MAC VLAN but the container only has a unique IP, the MAC is the same as the Host
 * Router must support multiple MAC addresss on different IP's
@@ -84,11 +89,12 @@ docker network create -d macvlan \
 * Full controll over IP addresses, Routing and Routes
 * Acts like a complete Host
 
+---
 ### Overlay network
 * Used to connect multiple docker hosts under the umbrella of a single network
 * Used in swarm scenarios
 * TODO
-	
+---
 ### None
 * A network with no IP addresses
 * Containers assinged to this network receive no IP,
@@ -103,5 +109,3 @@ docker network create -d macvlan \
 
 :point_right::link:[Overview of networks](https://docs.docker.com/network/)
 :point_right::link:[Overview of networks with examples](https://www.youtube.com/watch?v=bKFMS5C4CG0)
-
-

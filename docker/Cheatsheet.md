@@ -47,6 +47,16 @@
 | `docker volume rm my-vol`    | Remove volume |
 
 ## Networking
+| Command                         | Description |
+| -------------                   | ------------- |
+| `docker network ls`             | List all networks  |
+| `docker network create my-net`  | Create a quick bridge type network  |
+| `docker network inspect my-net` | View details about a network  |
+| `docker network rm my-net`      | Remove a network  |
+| `docker network connect my-net container1` | Connect container1 to my_net network  |
+| `docker network disconnect my-net container1` | Disconnect container1 from my_net network  |
+| `docker network create --driver bridge my_net` | Specify type(driver) of network  |
+
 
 ## Image creation
 
