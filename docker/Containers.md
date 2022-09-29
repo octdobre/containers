@@ -182,10 +182,10 @@ Multiple `ports` can be exposed.
 ### :put_litter_in_its_place: Autoremove
 You have already seen the flag `--rm`. This means that the `container` is deleted after it has stopped.
 
-### :mag: Foreground vs Detached, and Attaching
+### :mag: Foreground vs Detached, and Attaching/Detaching
 The option `-it` is a combination of `-i` and `-t`
 ```
--t              : Allocate a pseudo-tty
+-t              : Allocate a pseudo-tty (the left side `bash:~$` text)
 -i              : Keep STDIN open even if not attached
 ```
 
@@ -204,6 +204,20 @@ To do this specify the `-d` option.
 This will create the `container` without attaching it to its `console`.
 
 **By default when creating a container, if `-d` is not specified, it will attach to its console.**
+
+Create container but attach later:
+```
+docker run  --name agent1 -dit  nicolaka/netshoot /bin/bash
+```
+This will create the `container` in `detached mode`, with `bash` running. It will not stop.
+```
+docker attach agent1
+```
+This will attach to the command line in the container, which will allow us to run commands
+inside the container.
+
+**To detach from a container but keep it running press CTRL+P then CTRL+Q.
+This will keep the process open inside the container.**
 
 ### :dna: Lifecycle Options
 

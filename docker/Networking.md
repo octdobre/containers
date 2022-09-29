@@ -101,11 +101,29 @@ docker network create -d macvlan \
 * Containers in this network do not have egress, or ingress
 * Usefull for containers that do not need to access internet, or be reachable
 
-## :hammer_and_wrench: Commands
-
-
+## :six: Enabling IPv6
+Create `file`:
+```
+sudo nano /etc/docker/daemon.json
+```
+Copy content:
+```
+{
+  "ipv6": true,
+  "fixed-cidr-v6": "2001:db8:1::/64"
+}
+```
+Reload `docker` daemon:
+```
+sudo systemctl reload docker
+```
 
 ## :books: Documentation
 
 :point_right::link:[Overview of networks](https://docs.docker.com/network/)
+
 :point_right::link:[Overview of networks with examples](https://www.youtube.com/watch?v=bKFMS5C4CG0)
+
+:point_right::link:[IPv6](https://docs.docker.com/config/daemon/ipv6/)
+
+:point_right::link:[Build IPv6 Network](https://dev.to/joeneville_/build-a-docker-ipv6-network-dfj)
