@@ -1,4 +1,4 @@
-#   :bridge_at_night: Bridge(User Defined) Networking Exercises
+# :bridge_at_night: Bridge(User Defined) Networking Exercises
 
 ## Exercise 1: Two containers on same network
 

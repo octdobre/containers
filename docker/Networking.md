@@ -53,13 +53,15 @@ docker run -d  --network host  portainer/portainer-ce:latest
 ---
 ### MAC VLAN
 * Type macvlan
-* The container behaves as a complete new computer on the network
+* The container behaves as a physical host on the network
 * It receives a IP and MAC from the phisical router
+* Useful for legacy application that need to physically connect to a network
 * The network card and router/switch must support promiscuous mode, multiple mac addresses on one network port
 
 
 #### Bridge mode
-* The IP must be specified manually because the container will not get one from DHCP automatically
+* The IP should be specified manually otherwise it will clash with other real devices on the network.
+* Does not create a network interface on the host
 
 #### 802.1q trunk bridge mode
 * Works by creating a new sub interface on the host
