@@ -81,6 +81,9 @@ docker network rm my_macvlan
 ```
 
 ## Exercise 2: 802.1Q 
+
+TODO - TESTING 
+
 Macvlan 802.1Q creates sub-interfaces on the host interface.
 These need to be named also in the creation of the network.
 Example:
@@ -155,7 +158,7 @@ docker network rm my_macvlan
 ```
 ## Exercise 3: Two hosts two containers, same VLAN
 
-TODO
+TODO 
 
 
 ## :books: Documentation

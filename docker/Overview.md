@@ -56,6 +56,8 @@ attaching the container to a real physical network.
 
 :point_right: :link: [Docker Networking MACVLAN Exercises](Networking/MACVLAN_Exercises.md)
 
+:point_right: :link: [Docker Networking IPVLAN Exercises](Networking/IPVLAN_Exercises.md)
+
 ### Docker Compose
 
 ### DevContainers

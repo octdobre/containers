@@ -23,7 +23,8 @@
 <div align="center">
 
 &nbsp;&nbsp;&nbsp;[Bridge Exercises](docker/Networking/Bridge_Exercises.md)&nbsp;&nbsp;&nbsp;|
-&nbsp;&nbsp;&nbsp;[MACVLAN Exercises](docker/Networking/MACVLAN_Exercises.md)&nbsp;&nbsp;&nbsp;
+&nbsp;&nbsp;&nbsp;[MACVLAN Exercises](docker/Networking/MACVLAN_Exercises.md)&nbsp;&nbsp;&nbsp;|
+&nbsp;&nbsp;&nbsp;[IPVLAN Exercises](docker/Networking/MACVLAN_Exercises.md)&nbsp;&nbsp;&nbsp;
 </div>
 
 
