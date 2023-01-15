@@ -35,6 +35,7 @@ A Volume is like a USB Stick. In this case Volumes can be mounted in Docker cont
 
 :point_right: :link: [Docker volumes](Volumes.md)
 
+
 ## Advanced Topics
 
 ### DockerFile
@@ -44,6 +45,16 @@ A Volume is like a USB Stick. In this case Volumes can be mounted in Docker cont
 ### Image Registry
 
 ### Networking
+
+With Docker, it is possible to control the networking capabilities of a container 
+such as creating virtual networks and assigning the container an IP on that network or 
+attaching the container to a real physical network.
+
+:point_right: :link: [Docker Networking](Networking.md)
+
+:point_right: :link: [Docker Networking Bridge Exercises](Networking/Bridge_Exercises.md)
+
+:point_right: :link: [Docker Networking MACVLAN Exercises](Networking/MACVLAN_Exercises.md)
 
 ### Docker Compose
 

@@ -1,25 +1,25 @@
 # :bridge_at_night: Bridge(User Defined) Networking Exercises
 
-## Exercise 1: Two containers on same network
+## Exercise 1: Two containers on the same network
 
 Create `network`:
 ```
 docker network create --subnet 192.168.10.0/24 net1
 ```
 
-Open a second `terminal`. Run this each `command` in each `terminal`:
+Open a second `terminal`. Run each `command` in each `terminal`:
 
 ```
 docker run --name agent1 --rm -it --network net1 nicolaka/netshoot /bin/bash
 docker run --name agent2 --rm -it --network net1 nicolaka/netshoot /bin/bash
 ```
 
-Run this commaand in both and find out each `container's` `ip`:
+Run this command in both and find out each `container's` `ip`:
 ```
 ip a
 ```
 
-Run  this command  to check if the `containers` can reach each other.
+Run this command to check if the `containers` can reach each other.
 ```
 ping -c 2 <ip of other container>
 ```
@@ -59,7 +59,7 @@ Run this command in all and find out each `container's` `ip`:
 ```
 ip a
 ```
-Run  this command  to check if the `containers` can reach each other.
+Run this command to check if the `containers` can reach each other.
 ```
 ping -c 2 <ip of other container>
 ```
@@ -71,7 +71,7 @@ Inspect the network interfaces on the host:
 ```
 ip a
 ```
-Notice that containers agent1 and agent2 have each one virtual network interface on the host:
+Notice that containers agent1 and agent2 have each a virtual network interface on the host:
 ```
 28: eth0@if29: ...
     inet 192.168.10.2/24 
@@ -97,8 +97,6 @@ docker network rm net1 net2
 
 ## Exercise 3: Dual stack network
 
-TODO
-
 Create `network`:
 ```
 docker network create --subnet 192.168.10.0/24 --subnet "2001:db8:2::/64" --ipv6  netds
@@ -112,9 +110,9 @@ Inspect the network interfaces on the host:
 ```
 ip a
 ```
-Both containers whould have assigned an IPv4 and an IPv6 IP to each.
+Both containers should have assigned an IPv4 and an IPv6 IP to each.
 
-Run  this command  to check if the `containers` can reach each other.
+Run this command to check if the `containers` can reach each other.
 ```
 ping -c 2 <ip of other container>
 ```

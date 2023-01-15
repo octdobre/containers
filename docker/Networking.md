@@ -4,23 +4,23 @@
 
 Docker functionality around networks is vast. 
 
-From enclosed networks to containers having their own IP on the phisical network,  to Layer 3 networks, Dockers offers
-the possibility to do alot of things with networking.
+From enclosed networks to containers having their IP on the physical network,  to Layer 3 networks, Dockers offers
+the possibility to do a lot of things with networking.
 
 
 ## :abacus: Network Types
 
-### Bridge 
+### 1. Bridge 
 * Docker comes with a default enclosed network type `bridge` which is named also "bridge".
 * Ports must be exposed for ingress to containers
 * Containers have full egress access
 * :exclamation: Containers are automatically assigned to the bridge network if no network flag is specified :exclamation:
 
 ---
-### User Defined
+### 2. User Defined
 * Simple network
 * Type bridge
-* Can define subnet
+* Can define the subnet
 * Ports must be exposed for ingress to containers
 * Containers have full egress access
 
@@ -40,10 +40,10 @@ docker run -d -p 9000:8000 \
  portainer/portainer-ce:latest
 ```
 ---
-### Host 
+### 3. Host 
 * Type Host
 * The container behaves like a service on the host computer
-* Ports do not need to be exposed, but must be free otherwise it will not be able to bind them
+* Ports do not need to be exposed but must be free otherwise they will not be able to bind them
 
 Use the `--network host ` to connect a container directly to the host network:
 ```
@@ -51,21 +51,21 @@ docker run -d  --network host  portainer/portainer-ce:latest
 ```
 
 ---
-### MAC VLAN
+### 4. MAC VLAN
 * Type macvlan
 * The container behaves as a physical host on the network
-* It receives a IP and MAC from the phisical router
-* Useful for legacy application that need to physically connect to a network
+* It receives an IP and MAC from the physical router
+* Useful for a legacy application that needs to physically connect to a network
 * The network card and router/switch must support promiscuous mode, multiple mac addresses on one network port
 
 
-#### Bridge mode
+#### a) Bridge mode
 * The IP should be specified manually otherwise it will clash with other real devices on the network.
 * Does not create a network interface on the host
 
-#### 802.1q trunk bridge mode
-* Works by creating a new sub interface on the host
-* It behaves like a new network interface on the host, each container in this mode will get its own network interface
+#### b) 802.1q trunk bridge mode
+* Works by creating a new sub-interface on the host
+* It behaves like a new network interface on the host, each container in this mode will get its network interface
 * Trunking - TODO
 
 To create such a network you need to specify the parent as the network card of the host:
@@ -76,32 +76,32 @@ docker network create -d macvlan \
   -o parent=eth0 pub_net
 ```
 ---
-### IP VLAN
+### 5. IP VLAN
 
 * Type ipvlan
 
-#### Layer 2
+#### a) Layer 2
 * Like MAC VLAN but the container only has a unique IP, the MAC is the same as the Host
-* Router must support multiple MAC addresss on different IP's
+* Router must support multiple MAC addresses on different IPs
 
-#### Layer 3
-* At this level there is full controll over the network
-* It behaves as a full new network 
-* A static route must be set in the router in order for ingress to be possible to this new network
-* Full controll over IP addresses, Routing and Routes
+#### b) Layer 3
+* At this level there is full control over the network
+* It behaves as a fully new network 
+* A static route must be set in the router for ingress to be possible to this new network
+* Full control over IP addresses, Routing, and Routes
 * Acts like a complete Host
 
 ---
-### Overlay network
+### 6. Overlay network
 * Used to connect multiple docker hosts under the umbrella of a single network
 * Used in swarm scenarios
 * TODO
 ---
-### None
+### 7. None
 * A network with no IP addresses
-* Containers assinged to this network receive no IP,
-* Containers in this network do not have egress, or ingress
-* Usefull for containers that do not need to access internet, or be reachable
+* Containers assigned to this network receive no IP,
+* Containers in this network do not have egress or ingress
+* Useful for containers that do not need to access the internet, or be reachable
 
 ## :six: Enabling IPv6
 Create `file`:
@@ -119,6 +119,14 @@ Reload `docker` daemon:
 ```
 sudo systemctl reload docker
 ```
+
+## :weight_lifting: Exercises
+
+:point_right: :link: [Docker Networking Bridge Exercises](Networking/Bridge_Exercises.md)
+
+:point_right: :link: [Docker Networking MACVLAN Exercises](Networking/MACVLAN_Exercises.md)
+
+
 
 ## :books: Documentation
 
