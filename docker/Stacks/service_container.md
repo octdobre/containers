@@ -59,8 +59,8 @@ services:
       - 8.8.8.8
       - 9.9.9.9
     aliases:
-          - agent1.2
-          - agent1.3           
+      - agent1.2
+      - agent1.3           
     networks:                
       net1-ds:
         ipv4_address: 10.0.10.2
@@ -78,6 +78,7 @@ services:
 * Read Write volume : rw
 * Read Only  volume : ro
 * Volumes mounted from other containers
+* Temporary File System
 
 ```
 services:
@@ -87,9 +88,14 @@ services:
       - volume1:/etc/data
       - volume2:/etc/data/readwrite:rw     
       - volume3:/etc/data/readonly:ro
+      - /host/path:/container/path         # Bind mount
+      - ./compose/path:/container/path     # Bind mount, relative to docker compose folder 
     volumes_from:
       - service_name1:ro
       - service_name2:rw
+    tmpfs:                                 # Temporary File System
+      - /run
+      - /tmp
 ...
 ```
 
@@ -104,38 +110,71 @@ services:
     image: nginx
   web2:                       
     image: nginx
-    healthcheck:                                          # healthcheck 
+    healthcheck:                                         # healthcheck 
       test: ["CMD", "curl", "-f", "http://localhost"]
       interval: 1m30s
       timeout: 10s
       retries: 3
       start_period: 40s
-    depends_on: web1              # web1 depends on web2
+    depends_on: web1                                     # web1 depends on web2
   web3:                       
     image: nginx
-    depends_on:                   # web3 depends on both web1 and web1
+    depends_on:                                          # web3 depends on both web1 and web1
       - web1
       - web2
   web4:
     image: nginx
     depends_on:
       web2:
-        condition: service_healthy          # web2 must be healthy for web4 to start
+        condition: service_healthy                      # web2 must be healthy for web4 to start
       web3:
-        condition: service_started          # web3 must be started for web5 to start   
+        condition: service_started                      # web3 must be started for web5 to start   
 ...
 ```
 
 ## Deployment
 
+* Deploy Mode (global, replicated)  [global=one container per node]
+* Replica numbers
+* Placement Preferrence
+* Placement Constraints
+* Resouce Limits
+* Device Capabilities
+* Restart Policy
+
 ```
 services:
   web1:                       
     image: nginx
+    deploy:
+      mode: replicated                         
+      replicas: 2                              # Number of containers 
+      placement:       
+        preferences:                           
+          - datacenter=us-east                 # Placement preffered location
+        constraints:
+          - disktype=ssd                       # Placement constained capability
+      resources:                               # Resouce Limits
+        limits:
+          cpus: '0.50'
+          memory: 50M
+          pids: 1                              # Process ID Limits
+        reservations:
+          cpus: '0.25'
+          memory: 20M
+          devices:
+            - capabilities: ["nvidia-compute"]                        
+              driver: nvidia
+            - capabilities: ["gpu"]
+              device_ids: ["GPU-f123d1c9-26bb-df9b-1c23-4a731f61d8c7"]
+            - capabilities: ["tpu"]                 #AI Processor
+              count: 2
+      restart_policy:
+        condition: on-failure
+        delay: 5s
+        max_attempts: 3
+        window: 120s
 ```
-TODO
-
-
 
 ## Documentation
 

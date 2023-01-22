@@ -45,16 +45,20 @@ Using the `-v` flag we can `mount` both `volumes` and `bind mounts`.
 
 Synthax `-v <volume/bindmount>:<paht inside container>`.
 
-Example:
+* Example **VOLUMES**:
 ```
 docker run -d -v myvol2:/app  nginx
 ```
 Here we `mount` the `volume` `myvol2` to the path `/app` inside the `container`.
 
+* Example **BIND MOUNTS**
+
 ```
 docker run -d -v /containers/nginx_data:/app  nginx
 ```
 Here we `mount` the `bind mount` path `/containers/nginx_data` to the path `/app` inside the `container`.
+
+* Options
 
 Options can also be specified after the `container` path like so: `-v myvolume:/app:<options here>`.
 In most cases, you won't need to use options.
