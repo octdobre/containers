@@ -76,4 +76,11 @@
 
 ## Compose
 
+| Command                            | Description |
+| -------------                      | ------------- |
+| `docker compose up -d`             | Deploy the docker stack in detached mode    |
+| `docker compose up -f <file-name>` | Deploy the docker stack from specific file  |
+| `docker compose down`              | Remove the docker stack deployment          |
+| `docker compose stop`              | Stop all containers but dont remove         |
+| `docker compose start`             | Start all containers                        |
 
