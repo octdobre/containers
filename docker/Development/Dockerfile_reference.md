@@ -81,6 +81,10 @@ All `commands` will execute in the set `working directory`.
 
 The default `working directory` is `/`.
 
+```
+WORKDIR /app
+```
+
 ### COPY/ADD Directives
 
 Both `directives` are used to copy `files`, and `directories` to the `filesystem` of the `image`.
