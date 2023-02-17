@@ -122,6 +122,12 @@ Some examples of `volume drivers`:
 * **SSHFS** - Use a `volume` that is backed by an **SSHFS** connection
 * **CIFS/SAMBA** - Mount a **Samba** `volume` in the `container`
 
+## :broom: Cleanup
+
+Run this command to find dangling volumes:
+```
+docker volume ls -f dangling=true
+```
 
 ## :books: Documentation
 

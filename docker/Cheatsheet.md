@@ -13,7 +13,7 @@
 | `docker inspect redis`                                      | Inspect docker image  |
 | `docker image tag myService:1 myPrivateRegistry/myService:1`| Tag image to push to private registry  |
 | `docker image push myPrivateRegistry/myService:1`           | Push image to private registry  |
-| `docker container commit c16378f943fe myImage:1`            | Create image from running contaienr by saving its current state  |
+| `docker container commit c16378f943fe myImage:1`            | Create image from running container by saving its current state  |
 | `docker save <imagename_here> > imagename.tar`              | Save image to file on disk  |
 | `docker load < imagename.tar`                               | Load image from a file on disk  |
 | `docker image prune -a`                                     | Remove all unused images  |
@@ -39,12 +39,13 @@
 
 ## Volumes
 
-| Command                          | Description |
-| -------------                    | ------------- |
-| `docker volume ls`               | View all volumes  |
-| `docker volume create my-vol`    | Create named volume |
-| `docker volume inspect my-vol`   | Inspect volume |
-| `docker volume rm my-vol`        | Remove volume |
+| Command                            | Description |
+| -------------                      | ------------- |
+| `docker volume ls`                 | View all volumes  |
+| `docker volume create my-vol`      | Create named volume |
+| `docker volume inspect my-vol`     | Inspect volume |
+| `docker volume rm my-vol`          | Remove volume |
+| `docker volume ls -f dangling=true`| View dangling volumes |
 
 ## Networking
 
@@ -57,6 +58,13 @@
 | `docker network connect my-net container1`     | Connect container1 to my_net network  |
 | `docker network disconnect my-net container1`  | Disconnect container1 from my_net network  |
 | `docker network create --driver bridge my_net` | Specify type(driver) of network  |
+
+## System
+| Command                                        | Description |
+| -------------                                  | ------------- |
+| `docker info`                                  | Display system-wide information  |
+| `docker system prune -f`                       | Removes untagged images and dangling volumes and containers  |
+| `docker system df`                             | Inspect disk usage  |
 
 ## Dockerfile
 
@@ -85,6 +93,10 @@
 
 
 ## Image creation
+
+| Command                                           | Description |
+| -------------                                     | ------------- |
+| `docker build -t <image name>:<image version> . ` | Build and name image  |
 
 ## Container creation
 | Command                                                 | Description |
