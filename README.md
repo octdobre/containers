@@ -46,17 +46,6 @@
 </div>
 
 
-
-<h2 align="center">
-     <p>Self Hosting<p>
-</h2>
-
-<div align="center">
-
-&nbsp;&nbsp;&nbsp;[Templates](selfhosting/SelfHosted.md)&nbsp;&nbsp;&nbsp;
-</div>
-
-
 <h2 align="center">
      <p>Software Development<p>
 </h2>
@@ -67,4 +56,14 @@
 &nbsp;&nbsp;&nbsp;[Building Images](docker/Development/Building_Images.md)&nbsp;&nbsp;&nbsp;|
 &nbsp;&nbsp;&nbsp;[Image Registry](docker/Development/Image_Registry.md)&nbsp;&nbsp;&nbsp;|
 &nbsp;&nbsp;&nbsp;[Templates](dev/Development.md)&nbsp;&nbsp;&nbsp;
+</div>
+
+
+<h2 align="center">
+     <p>Self Hosting<p>
+</h2>
+
+<div align="center">
+
+&nbsp;&nbsp;&nbsp;[Templates](selfhosting/SelfHosted.md)&nbsp;&nbsp;&nbsp;
 </div>
