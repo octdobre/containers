@@ -182,39 +182,57 @@ Multiple `ports` can be exposed.
 ### :put_litter_in_its_place: Autoremove
 You have already seen the flag `--rm`. This means that the `container` is deleted after it has stopped.
 
-### :mag: Foreground vs Detached, and Attaching/Detaching
-The option `-it` is a combination of `-i` and `-t`
+### :mag: Foreground vs Detached
+
+By default when creating a container the command line will automatically attach to the console
+of the container. 
+
+This means the container will be kept in foreground.
+
+For most cases  `containers` are used in *detached mode*.
+
+
+To do this specify the `-d` option. 
+
+This will create the `container` without attaching it to its `console`.
+
+```
+docker run -d nginx
+```
+
+To attach to the console and use a tty(teletypewriter) use: `-it`.
+
+It is a combination of `-i` and `-t`
 ```
 -t              : Allocate a pseudo-tty (the left side `bash:~$` text)
 -i              : Keep STDIN open even if not attached
 ```
 
-Otherwise, you can use `docker attach <container id>` to attach to a running `container` after
-it has started.
+### :calling: Attaching/Detaching
 
-And then you can use `docker exec -it <container id> bash` if you need multiple `terminals` inside the `container`.
-
-It is used to start the `process` in the `container` and attach the `console` to the `process’s` `standard input`. 
+Use:
+```
+docker attach <container id>
+``` 
+to attach to a running `container` after it has started.
 
 This way you can start using `commands` inside the `container`.
 
-For most cases, we will use `containers` in *detached mode*.
-To do this specify the `-d` option. 
+Can only be used on a container with a open `STDIN`. Otherwise it will close the container!
 
-This will create the `container` without attaching it to its `console`.
+And then you can use:
+```
+docker exec -it <container id> bash 
+```
+if you need multiple `terminals` inside the `container`.
 
-**By default when creating a container, if `-d` is not specified, it will attach to its console.**
+It is used to start another `process` in the `container` and attach the `console` to the `process’s` `standard input`. 
 
 Create container but attach later:
 ```
 docker run  --name agent1 -dit  nicolaka/netshoot /bin/bash
 ```
-This will create the `container` in `detached mode`, with `bash` running. It will not stop.
-```
-docker attach agent1
-```
-This will attach to the command line in the container, which will allow us to run commands
-inside the container.
+This will create the `container` in `detached mode`, with `bash` running. It will not stop the container.
 
 **To detach from a container but keep it running press CTRL+P then CTRL+Q.
 This will keep the process open inside the container.**

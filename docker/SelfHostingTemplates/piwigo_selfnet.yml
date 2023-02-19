@@ -1,0 +1,51 @@
+version: '3.8'
+name: piwigo-compose
+services:
+  piwigo:
+    container_name: "piwigo-server"
+    image: lscr.io/linuxserver/piwigo:latest
+    environment:
+      PUID: 1000
+      PGID: 1000
+      TZ: "Etc/UTC"
+    ports:
+      - "80:80"
+    networks:
+      net-piwigo:
+        ipv4_address: 10.0.10.2
+    restart: unless-stopped
+    volumes:
+      - piwigodata:/config
+      - piwigolib:/gallery
+  mysql:
+    container_name: "mysql-server"
+    hostname: "mysql-server"
+    image: mysql:8
+    environment:
+      MYSQL_ROOT_PASSWORD: MyStrongPassword2019
+      MYSQL_USER: user
+      MYSQL_PASSWORD: password
+    ports:
+      - "3306:3306"
+    user: root
+    networks:
+      net-piwigo:
+        ipv4_address: 10.0.10.3
+    restart: unless-stopped
+    volumes:
+      - mysqldata:/var/lib/mysql
+networks:
+  net-piwigo:
+    name: net-piwigo
+    ipam:
+      driver: default
+      config:
+        - subnet: "10.0.10.0/24"
+          ip_range: "10.0.10.0/24"
+volumes:
+  piwigodata:
+    external: true
+  piwigolib:
+    external: true
+  mysqldata:
+    external: true

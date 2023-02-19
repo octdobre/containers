@@ -1,0 +1,14 @@
+version: '3.8'
+name: ukuma-compose
+services:
+  ukuma:
+    container_name: "ukuma"
+    image: louislam/uptime-kuma:1
+    ports:
+      - "3001:3001"
+    restart: unless-stopped
+    network_mode: bridge
+    volumes:
+      - uptime-kuma:/app/data
+volumes:
+  uptime-kuma:

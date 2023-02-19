@@ -1,0 +1,20 @@
+version: '3.8'
+name: mysql-compose
+services:
+  mysql:
+    container_name: "mysql-server"
+    image: mysql:8
+    environment:
+      MYSQL_ROOT_PASSWORD: MyStrongPassword2019
+      MYSQL_USER: user
+      MYSQL_PASSWORD: password
+    ports:
+      - "3306:3306"
+    user: root
+    network_mode: bridge
+    restart: unless-stopped
+    volumes:
+      - mysqldata:/var/lib/mysql
+volumes:
+  mysqldata:
+    external: true

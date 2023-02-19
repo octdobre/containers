@@ -1,0 +1,24 @@
+version: '3.8'
+name: mssql-compose
+services:
+  mssql:
+    container_name: "sql-server2019"
+    image: mcr.microsoft.com/mssql/server:2019-latest
+    environment:
+      SA_PASSWORD: MyStrongSecurePassword2019
+      ACCEPT_EULA: Y
+    ports:
+      - "1433:1433"
+    user: root
+    network_mode: bridge
+    volumes:
+      - mssql-data:/var/opt/mssql/data
+      - mssql-log:/var/opt/mssql/log
+      - mssql-secrets:/run/secrets
+volumes:
+  mssql-data:
+    external: true
+  mssql-log:
+    external: true
+  mssql-secrets:
+    external: true

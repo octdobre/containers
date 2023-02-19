@@ -19,13 +19,13 @@ networks:
     enable_ipv6: true
     ipam:
       driver: default
-        config:
-          - subnet: "10.0.10.0/24"
-            ip_range: "10.0.10.0/24"
-            gateway: 10.0.10.1
-          - subnet: "2001:db8:2::/64"
-            ip_range: "2001:db8:2::/64"
-            gateway: "2001:db8:2::1"
+      config:
+        - subnet: "10.0.10.0/24"
+          ip_range: "10.0.10.0/24"
+          gateway: 10.0.10.1
+        - subnet: "2001:db8:2::/64"
+          ip_range: "2001:db8:2::/64"
+          gateway: "2001:db8:2::1"
 ...
 ```
 
@@ -51,10 +51,10 @@ networks:
       driver: macvlan
         driver_opts:
           parent: <name of nic>
-        config:
-          - subnet: "10.0.10.0/24"
-            ip_range: "10.0.10.0/24"
-            gateway: 10.0.10.1
+      config:
+        - subnet: "10.0.10.0/24"
+          ip_range: "10.0.10.0/24"
+          gateway: 10.0.10.1
   net-nginx-ipvlan:
     name: net-nginx-ip
     ipam:
@@ -62,10 +62,10 @@ networks:
         driver_opts:
           parent: <name of nic>
           ipvlan_mode: l2 
-        config:
-          - subnet: "10.0.11.0/24"
-            ip_range: "10.0.11.0/24"
-            gateway: 10.0.11.1
+      config:
+        - subnet: "10.0.11.0/24"
+          ip_range: "10.0.11.0/24"
+          gateway: 10.0.11.1
 ...
 ```
 

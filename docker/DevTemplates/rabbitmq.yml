@@ -1,0 +1,19 @@
+version: '3.8'
+name: rabbit-compose
+services:
+  rabbit1:
+    container_name: "rabbit1"
+    hostname: "rabbit1"
+    image: rabbitmq:management
+    environment:
+      RABBITMQ_DEFAULT_USER: user
+      RABBITMQ_DEFAULT_PASS: password
+      RABBITMQ_NODENAME: rabbit1
+    ports:
+      - "5672:5672"
+      - "15672:15672"
+    network_mode: bridge
+    volumes:
+      - rabbitmq-data:/var/lib/rabbitmq
+volumes:
+  rabbitmq-data:

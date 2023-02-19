@@ -55,15 +55,30 @@
 &nbsp;&nbsp;&nbsp;[Dockerfile Reference](docker/Development/Dockerfile_reference.md)&nbsp;&nbsp;&nbsp;|
 &nbsp;&nbsp;&nbsp;[Building Images](docker/Development/Building_Images.md)&nbsp;&nbsp;&nbsp;|
 &nbsp;&nbsp;&nbsp;[Image Registry](docker/Development/Image_Registry.md)&nbsp;&nbsp;&nbsp;|
-&nbsp;&nbsp;&nbsp;[Templates](dev/Development.md)&nbsp;&nbsp;&nbsp;
 </div>
 
 
 <h2 align="center">
-     <p>Self Hosting<p>
+     <p>Software Development Templates<p>
 </h2>
 
 <div align="center">
 
-&nbsp;&nbsp;&nbsp;[Templates](selfhosting/SelfHosted.md)&nbsp;&nbsp;&nbsp;
+&nbsp;&nbsp;&nbsp;[MS SQL](docker/DevTemplates/mssql.yml)&nbsp;&nbsp;&nbsp;|
+&nbsp;&nbsp;&nbsp;[mySQL](docker/DevTemplates/mysql.yml)&nbsp;&nbsp;&nbsp;|
+&nbsp;&nbsp;&nbsp;[MariaDb](docker/DevTemplates/mariadb.yml)&nbsp;&nbsp;&nbsp;|
+&nbsp;&nbsp;&nbsp;[RabbitMQ](docker/DevTemplates/rabbitmq.yml)&nbsp;&nbsp;&nbsp;
 </div>
+
+
+<h2 align="center">
+     <p>Self Hosting Templates<p>
+</h2>
+
+<div align="center">
+
+&nbsp;&nbsp;&nbsp;[Piwigo on bridge network](docker/SelfHostingTemplates/piwigo_bridge.yml)&nbsp;&nbsp;&nbsp;|
+&nbsp;&nbsp;&nbsp;[Piwigo on private network](docker/SelfHostingTemplates/piwigo_selfnet.yml)&nbsp;&nbsp;&nbsp;|
+&nbsp;&nbsp;&nbsp;[Uptime Kuma](docker/SelfHostingTemplates/uptimekuma.yml)&nbsp;&nbsp;&nbsp;
+</div>
+
