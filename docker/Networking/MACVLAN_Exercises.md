@@ -100,7 +100,9 @@ Create `network`:
 docker network create -d macvlan \
 --subnet=10.0.0.0/24 \
 --gateway=10.0.0.1 \
--o parent=<your Network Interface>.<add here a number between 1 and 255> my_macvlan
+-o parent=<your Network Interface>.<add here a number between 1 and 255> \
+-o vlan=<add here a number between 1 and 255>  \
+my_macvlan
 ```
 
 Open a second `terminal`. Run each `command` in each `terminal`:
@@ -158,7 +160,7 @@ docker network rm my_macvlan
 ```
 ## Exercise 3: Two hosts two containers, same VLAN
 
-TODO 
+TODO - REQUIRES MULTIPLE MACHINES
 
 
 ## :books: Documentation

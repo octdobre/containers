@@ -97,15 +97,24 @@ docker network rm net1 net2
 
 ## Exercise 3: Dual stack network
 
+To make containers communicate with each other over IPv6 in Docker, you need to enable IPv6 support for Docker daemon first. You can do this by adding the following options to the daemon.json file:
+```
+{
+  "ipv6": true,
+  "fixed-cidr-v6": "<IPv6 subnet>"
+}
+```
+
 Create `network`:
 ```
 docker network create --subnet 192.168.10.0/24 --subnet "2001:db8:2::/64" --ipv6  netds
-``
+```
 Open two more `terminals`. Run this each command in each `terminal`:
 ```
 docker run --name agent1 --rm -it --network netds nicolaka/netshoot /bin/bash
 docker run --name agent2 --rm -it --network netds nicolaka/netshoot /bin/bash
-``
+```
+
 Inspect the network interfaces on the host:
 ```
 ip a
