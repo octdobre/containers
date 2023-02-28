@@ -56,7 +56,7 @@ Copy this to the file and fill in the IP range:
 ```
 
 ## Bridge(User) Network
-
+TODO
 
 ## MACVLAN & IPVLAN L2 Network
 
@@ -162,6 +162,8 @@ hhtp://[2000::3]
 //add actual ip of webserver
 ```
 The browser should navigate to a page with the text `It works!`.
+
+TODO setup route for containers to have outside conectivity.
 
 ## :books: Documentation
 
