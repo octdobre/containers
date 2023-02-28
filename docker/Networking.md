@@ -126,6 +126,10 @@ sudo systemctl reload docker
 
 :point_right: :link: [Docker Networking MACVLAN Exercises](Networking/MACVLAN_Exercises.md)
 
+:point_right: :link: [Docker Networking IPVLAN Exercises](Networking/IPVLAN_Exercises.md)
+
+:point_right: :link: [Docker Networking IPV6 Exercises](Networking/IPV6_NETWORKING.md)
+
 
 
 ## :books: Documentation
