@@ -36,8 +36,6 @@ To view the ip of the host:
 ip -6 a
 ```
 
-
-
 ## Enabling IPv6
 
 To make containers communicate with each other over IPv6 in Docker, you need to enable IPv6 support for Docker daemon first. You can do this by adding the following options to the `daemon.json` file:
@@ -56,7 +54,24 @@ Copy this to the file and fill in the IP range:
 ```
 
 ## Bridge(User) Network
-TODO
+
+After enabling IPV6 in Docker and setting the `fixed-cidr-v6`, the default bridge network can be used to deploy containers using IPV6.
+
+The ports do not need to be exposed since there is no NAT involved. The host will automatically have access to the container.
+
+Deploy a webserver to the default bridge network:
+```
+docker run --name=web6 -d httpd
+```
+Get the IP of the webserver:
+```
+docker network inspect bridge
+```
+Try a ping from the docker host to the container:
+```
+ping6 <ip of the container>
+```
+A reply should be received.
 
 ## MACVLAN & IPVLAN L2 Network
 
@@ -126,9 +141,9 @@ Duplex resolution might not always be possible in this scenario.
 Create the L3 network:
 ```
 docker network create -d ipvlan \
---subnet="2000::/57" \
---ip-range="2000::1/80"  \
---gateway="2000::1" \
+--subnet="2222::/57" \
+--ip-range="2222::1/80"  \
+--gateway="2222::1" \
 -o parent=<network interface or host> \
 -o ipvlan_mode=l3 \
 --ipv6 \
@@ -140,7 +155,7 @@ After the network has been created, routes have to be created.
 For ingress (North-South) communication, a route has to be set up in the router of the network of the host.
 The detials should be the subnet of the IPVLAN L3 network and the ip of the gateway of this network, in which case it is the IP of the docker host. 
 
-In the example above the subnet is `2000::/57`. The gateway value is not the value from the IPVLAN L3 network, but instead the IP of the docker host.
+In the example above the subnet is `2222::/57`. The gateway value is not the value from the IPVLAN L3 network, but instead the IP of the docker host.
 
 Please consult the manual of the menu of such a device or software on how to add static routes.
 
@@ -150,6 +165,11 @@ docker run --name agent1 --rm -it --network ipvlan_v6_L3 --cap-add=NET_ADMIN nic
 ```
 From a different host ping the IP of the debug container. A reply should be received.
 
+Retrieve the IPV6 of a different host on the network and ping it.
+```
+ping6 <ip of other host>
+```
+A reply should be received. No routes needed to be set up for egress conectivity.
 
 Create a webserver:
 ```
@@ -158,12 +178,13 @@ docker run --name=webserverv6 --network ipvlan_v6_L3 -d httpd
 
 Open a browser on a different host and put the ip of the webserver in the adress bar surrounded by brackets[] like this:
 ```
-hhtp://[2000::3]
+hhtp://[2222::3]
 //add actual ip of webserver
 ```
 The browser should navigate to a page with the text `It works!`.
 
-TODO setup route for containers to have outside conectivity.
+
+TODO Figure out how to make containers connect to outside internet IPs.
 
 ## :books: Documentation
 
