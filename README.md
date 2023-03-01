@@ -55,7 +55,7 @@
 
 &nbsp;&nbsp;&nbsp;[Dockerfile Reference](docker/Development/Dockerfile_reference.md)&nbsp;&nbsp;&nbsp;|
 &nbsp;&nbsp;&nbsp;[Building Images](docker/Development/Building_Images.md)&nbsp;&nbsp;&nbsp;|
-&nbsp;&nbsp;&nbsp;[Image Registry](docker/Development/Image_Registry.md)&nbsp;&nbsp;&nbsp;|
+&nbsp;&nbsp;&nbsp;[Image Registry](docker/Development/Image_Registry.md)&nbsp;&nbsp;&nbsp;
 </div>
 
 
