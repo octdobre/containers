@@ -2,28 +2,28 @@
 
 ## Introduction
 
-I have created a special page for network using IPV6 due to it being different in functionality than IPV4.
+I have created a special page for a network using IPV6 due to it being different in functionality than IPV4.
 
-All docker networks that have IPV6 enabled are dual stacked. Containers will receive both a IPV4 and a IPV6 ip.
+All docker networks that have IPV6 enabled are dual-stacked. Containers will receive both an IPV4 and an IPV6 IP.
 
-Currently (2023) there is no possibility to create a IPV6 only network on docker.
+Currently (2023) there is no possibility to create a IPV6-only network on docker.
 
-It is important to note that currently (2023) docker supports creating networks with an ip range of exactly `/80` when
-the containers need to interract with the physical network. 
+It is important to note that currently (2023) docker supports creating networks with an IP range of exactly `/80` when
+the containers need to interact with the physical network. 
 
 ## Discovering the IPV6 details of the host network
 
-In order to find the IPV6 details of the network of the host, please consult the menu of the router.
+To find the IPV6 details of the network of the host, please consult the menu of the router.
 
-You should be looking for either a IPV6 Prefix or IPV6 Subnet. 
+You should be looking for either an IPV6 Prefix or IPV6 Subnet. 
 
-The prefix is usually somewhere around `/50-/60` in subnet range. You need to reduce this to a `/80` subnet in order to use it as a ip range for the docker network.
+The prefix is usually somewhere around `/50-/60` in the subnet range. You need to reduce this to a `/80` subnet to use it as an ip range for the docker network.
 
 You can use [IPV6 Subnet Calculator](http://www.gestioip.net/cgi-bin/subnet_calculator.cgi) to calculate the subnet.
 
 Note: You also need to find the IP of the gateway, otherwise routing will not work.
 
-To view the gateway ip:
+To view the gateway IP:
 ```
 ip -6 route
 
@@ -59,13 +59,13 @@ After enabling IPV6 in Docker and setting the `fixed-cidr-v6`, the default bridg
 
 The ports do not need to be exposed since there is no NAT involved. The host will automatically have access to the container.
 
-Deploy a webserver to the default bridge network:
+Deploy a web server to the default bridge network:
 ```
 docker run --name=web6 -d httpd
 ```
 Get the IP of the webserver:
 ```
-docker network inspect bridge
+docker network inspect the bridge
 ```
 Try a ping from the docker host to the container:
 ```
@@ -75,7 +75,7 @@ A reply should be received.
 
 ## MACVLAN & IPVLAN L2 Network
 
-MAVLAN or IPVLAN containers can be exposed to the network of the host. In order to do that the details should match the ones of the router to which the host is connected.
+MAVLAN or IPVLAN containers can be exposed to the network of the host. To do that the details should match the ones of the router to which the host is connected.
 
 Run this to find the name of the network interface:
 ```
@@ -103,12 +103,12 @@ Find the IPV6 or another host on the network and ping it:
 ping -6 -c 2  <ipv6>
 ```
 
-Check conectivity to outside:
+Check connectivity to outside:
 ```
 ping -6 -c 2 ipv6.google.com
 ```
 
-Run a webserver on the IPV6 network:
+Run a web server on the IPV6 network:
 ```
 docker run --name=webserverv6 --network mac6 -d httpd
 ```
@@ -118,15 +118,15 @@ Find out the IP of the webserver:
 docker network inspect mac6
 ```
 
-Open a browser on a different host and put the ip of the webserver in the adress bar surrounded by brackets[] like this:
+Open a browser on a different host and put the IP of the webserver in the address bar surrounded by brackets[] like this:
 ```
 hhtp://[2000::]  
-//example ip
+//example IP
 ```
 
 The browser should navigate to a page with the text `It works!`.
 
-Note that because the MACVLAN network is created with the details of the host network, no routes need to be created for duplex conectivity.
+Note that because the MACVLAN network is created with the details of the host network, no routes need to be created for duplex connectivity.
 
 ## IPVLAN L3 Network
 
@@ -134,9 +134,9 @@ An IPVLAN L3 network is a complete network on its own.
 
 The network details can be any because it does not depend on the host's network.
 
-The IPVLAN L3 will attach to the hosts network and routes have to be created mandatory.
+The IPVLAN L3 will attach to the host's network and routes have to be created mandatory.
 
-Duplex resolution might not always be possible in this scenario. 
+The duplex resolution might not always be possible in this scenario. 
 
 Create the L3 network:
 ```
@@ -153,7 +153,7 @@ ipvlan_v6_L3
 After the network has been created, routes have to be created.
  
 For ingress (North-South) communication, a route has to be set up in the router of the network of the host.
-The detials should be the subnet of the IPVLAN L3 network and the ip of the gateway of this network, in which case it is the IP of the docker host. 
+The details should be the subnet of the IPVLAN L3 network and the ip of the gateway of this network, in which case it is the IP of the docker host. 
 
 In the example above the subnet is `2222::/57`. The gateway value is not the value from the IPVLAN L3 network, but instead the IP of the docker host.
 
@@ -167,19 +167,19 @@ From a different host ping the IP of the debug container. A reply should be rece
 
 Retrieve the IPV6 of a different host on the network and ping it.
 ```
-ping6 <ip of other host>
+ping6 <IP of other hosts>
 ```
-A reply should be received. No routes needed to be set up for egress conectivity.
+A reply should be received. No routes needed to be set up for egress connectivity.
 
-Create a webserver:
+Create a web server:
 ```
 docker run --name=webserverv6 --network ipvlan_v6_L3 -d httpd
 ```
 
-Open a browser on a different host and put the ip of the webserver in the adress bar surrounded by brackets[] like this:
+Open a browser on a different host and put the ip of the webserver in the address bar surrounded by brackets[] like this:
 ```
-hhtp://[2222::3]
-//add actual ip of webserver
+HTTP://[2222::3]
+//add the actual IP of web server
 ```
 The browser should navigate to a page with the text `It works!`.
 
