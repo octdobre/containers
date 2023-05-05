@@ -19,8 +19,6 @@ volumes:
   db-data-readwrite:
 ```
 
-
-
 ## Options
 
 * Options
@@ -41,6 +39,24 @@ volumes:
 Options are volume driver dependent.
 
 
+## Using external volumes
+
+
+* External
+
+External volumes decouple volume management from the compose file.
+Volumes persist when creating or deleting infrastructure with compose.
+
+```
+services:
+  agent1:                       
+    image: mongodb           
+    volumes:
+      - db-data-notmanaged:/etc/data
+volumes:
+  db-data-notmanaged:
+    external: true
+```
 
 ## :books: Documentation
 
