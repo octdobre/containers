@@ -117,7 +117,9 @@
 | Command                                | Description |
 | -------------                          | ------------- |
 | `docker compose up -d`                 | Deploy the docker stack in detached mode    |
+| `docker compose up app -d`             | Deploy ony specific service from stack      |
 | `docker compose  -f <file-name> up -d` | Deploy the docker stack from specific file  |
 | `docker compose down`                  | Remove the docker stack deployment          |
+| `docker-compose down --volumes`        | Removes also the volumes                    |
 | `docker compose stop`                  | Stop all containers but dont remove         |
 | `docker compose start`                 | Start all containers                        |
