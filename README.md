@@ -68,7 +68,8 @@
 &nbsp;&nbsp;&nbsp;[MS SQL](docker/DevTemplates/mssql.yml)&nbsp;&nbsp;&nbsp;|
 &nbsp;&nbsp;&nbsp;[mySQL](docker/DevTemplates/mysql.yml)&nbsp;&nbsp;&nbsp;|
 &nbsp;&nbsp;&nbsp;[MariaDb](docker/DevTemplates/mariadb.yml)&nbsp;&nbsp;&nbsp;|
-&nbsp;&nbsp;&nbsp;[RabbitMQ](docker/DevTemplates/rabbitmq.yml)&nbsp;&nbsp;&nbsp;
+&nbsp;&nbsp;&nbsp;[RabbitMQ](docker/DevTemplates/rabbitmq.yml)&nbsp;&nbsp;&nbsp;|
+&nbsp;&nbsp;&nbsp;[WSL config example](docker/DevTemplates/.wslconfig)&nbsp;&nbsp;&nbsp;
 </div>
 
 
