@@ -9,7 +9,7 @@ For quick commands check cheat sheet here :point_right: [Cheat Sheet](Cheatsheet
 Docker Desktop is the company name that also created the technology.
 
 Docker Desktop is the software from Docker that contains 
-all the services needed to develop containers.
+all the services needed to develop containers and host.
 
 :point_right: :link:[Docker Desktop Installer](https://docs.docker.com/desktop/windows/install/)
 

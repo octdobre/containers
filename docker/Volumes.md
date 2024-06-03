@@ -37,7 +37,7 @@ You can create, manage and delete `volumes`with **Docker** commands.
 
 While `volumes` can only exist in the `/var/lib/docker/volumes/` location, `bind mounts` can reference any `folder` on the `host`.
 
-##  :wrench: Usage
+## :wrench: Usage
 
 Storage is `mounted` inside the `container` as a `folder`.
 
@@ -58,6 +58,13 @@ docker run -d -v /containers/nginx_data:/app  nginx
 ```
 Here we `mount` the `bind mount` path `/containers/nginx_data` to the path `/app` inside the `container`.
 
+* Example **Windows** mounts when running on **WSL**
+
+```
+docker run -d -v C:\nginx_data:/app  nginx
+```
+The Windows path uses backslashes.
+
 * Options
 
 Options can also be specified after the `container` path like so: `-v myvolume:/app:<options here>`.
@@ -65,7 +72,7 @@ In most cases, you won't need to use options.
 
 The `flag` `--mount` can be used for more complex scenarios. Check the [official docs](https://docs.docker.com/storage/volumes/) for more details.
 
-##  :hammer_and_wrench: Docker Commands
+## :hammer_and_wrench: Docker Commands
 
 **Docker** commands only apply to **Docker** `volumes` since they are the only ones that are managed. `Bind mounts` cannot be managed by **Docker** using the `CLI`.
 
