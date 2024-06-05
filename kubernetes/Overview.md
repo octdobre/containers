@@ -19,17 +19,19 @@ K8s can also be installed on Windows though the Docker Desktop software.
 
 ## Basic Topics
 
-### Pods
+### Resources
 
-### Deployments
+### Compute Resources( Pod/ Deployment)
 
-### Rollouts
+### Networking Resources
 
-### Configuration Maps
+### Settings Resources( Configuration Maps, Secrets )
 
-### Secrets
+### Storage Resources
 
 ## Advanced Topics 
+
+### Rollouts
 
 ### YAML Syntax
 
