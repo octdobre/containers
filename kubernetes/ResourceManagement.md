@@ -31,6 +31,27 @@ Kubernetes will take care to create all of the resources in the yaml if possible
 kubectl apply -f myresource.yaml
 ```
 
+
+## Nodes
+
+A kubernetes node is an instance of a machine on which resources can be deployed.
+
+Get the nodes:
+```
+kubectl get nodes
+```
+```
+kubectl label node docker-desktop storage=SSD
+```
+```
+kubectl describe node 
+```
+
+```
+nodeSelector:
+  storage: SSD
+```
+
 ## Namespaces
 
 A namespace is a resource to group and isolate other resources.
@@ -63,6 +84,27 @@ To work with Namespace, you need to add --namespace flag to k8s commands.
 ```
 kubectl create -f deployment.yaml --namespace=custom-namespace
 ```
+
+To create a namespace:
+```
+kubectl create namespace <name>
+```
+
+To delete a namespace:
+```
+ kubectl delete namespace/deployment
+```
+
+NAMESPACE
+ kubectl get namespaces
+
+Switch to a different namespace as WORKING namespace:
+```
+kubens <mynamespace> -> switch to namespace
+```
+
+
+
 
 ## Documentation 
 

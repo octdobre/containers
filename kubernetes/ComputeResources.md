@@ -27,6 +27,66 @@ spec:
     ports:
     - containerPort: 80
 ```
+
+### Pod commands
+Example to create a pod directly.
+```
+kubectl run hello-world --replicas=2 --labels="run=load-balancer-example" --image=gcr.io/google-samples/node-hello:1.0  --port=8080
+```
+
+Lists all pods in the default namespace.
+```
+kubectl get pods
+```
+
+Gets all pods in the specified namespace.
+```
+kubectl get pods -<namespace_name>
+```
+To show the node on which the pod is on:
+```
+kubectl get pods -o wide
+```
+
+Get details about a specific pod.
+```
+kubectl get pods/<pod_name>
+```
+
+Expose a pod to the outside.
+```
+kubectl port-forward <podname> [LOCALPORT]:[REMOTEPORT]
+```
+
+Attach the comamnd line to a process that is already running inside a container:
+```
+kubectl attach <podname> -c <container>
+```
+
+Execute a commmand inside a pod:
+```
+kubectl exec [-it] <podname> [-c container] --commands
+```
+
+### Pod debugging
+
+kubectl describe pods ${POD_NAME}  --namespace=testen
+
+View what the application inside the container outputted to the command line:
+```
+kubectl logs pod/enviroconfigs-deployment-67b49868bd-b6kjj --namespace=test
+```
+
+Evicting pods:
+```
+kubectl get pods | grep Evicted | awk '{print $1}' | xargs kubectl delete pod 
+```
+
+Shell into a pod:
+```
+kubectl exec --stdin --tty pod/<pod_name> -- /bin/bash 
+```
+
 ## Controllers
 
 A controller is a resource that manages other resources.
@@ -39,7 +99,6 @@ Some of the things that a controller manages:
 * Making sure that the pod is healty(enaugh cpu and ram)
 * It manages replication of pods
 * It manages rollout of pods
-
 
 ### Deployment
 
@@ -70,6 +129,39 @@ spec:
         image: nginx:1.14.2
         ports:
         - containerPort: 80
+```
+
+#### Deployments commands
+
+Apply the deployment to the cluster:
+```
+kubectl apply -f ./deployment.yaml
+```
+Apply a deployment to a namespace:
+```
+kubectl apply -f ./deployment.yaml  --namespace=<namespace_name>
+```
+Delete a deployment:
+```
+kubectl delete deploy/deployment
+```
+```
+kubectl expose <type>      <identifier name>  --port=[external_port]    --target-port=[container port] --type=[service_type]
+```
+```
+kubectl expose deployment enviroconfigs-deployment --type=NodePort  -> expose deployment as service
+```
+```
+kubectl set image deployment/enviroconfigs-deployment enviroconfigs=enviroconfigs:sample-debugnew  -> update image of container
+```
+```
+kubectl rollout status  deployment/enviroconfigs-deployment --namespace=test
+```
+```
+kubectl rollout history deployment/enviroconfigs-deployment --namespace=test
+```
+```
+kubectl scale --replicas=3 deployment/enviroconfigs-deployment --namespace=test
 ```
 
 ### ReplicaSet

@@ -20,6 +20,7 @@
 &nbsp;&nbsp;&nbsp;[Cheat Sheet](docker/Cheatsheet.md)&nbsp;&nbsp;&nbsp;
 </div>
 
+<h2 align="center"></h2>
 
 <h2 align="center">
      <p>Networking Exercises<p>
@@ -32,6 +33,7 @@
 &nbsp;&nbsp;&nbsp;[IPVLAN Exercises](docker/Networking/IPVLAN_Exercises.md)&nbsp;&nbsp;&nbsp; |
 &nbsp;&nbsp;&nbsp;[IPV6 Exercises](docker/Networking/IPV6_NETWORKING.md)&nbsp;&nbsp;&nbsp;
 
+<h2 align="center"></h2>
 
 <h2 align="center">
      <p>Docker Stacks (Compose)<p>
@@ -46,6 +48,7 @@
 &nbsp;&nbsp;&nbsp;[Examples](docker/Stacks/stacks_exercises.md)&nbsp;&nbsp;&nbsp;
 </div>
 
+<h2 align="center"></h2>
 
 <h2 align="center">
      <p>Software Development<p>
@@ -58,6 +61,7 @@
 &nbsp;&nbsp;&nbsp;[Image Registry](docker/Development/Image_Registry.md)&nbsp;&nbsp;&nbsp;
 </div>
 
+<h2 align="center"></h2>
 
 <h2 align="center">
      <p>Software Development Templates<p>
@@ -72,6 +76,7 @@
 &nbsp;&nbsp;&nbsp;[WSL config example](docker/DevTemplates/.wslconfig)&nbsp;&nbsp;&nbsp;
 </div>
 
+<h2 align="center"></h2>
 
 <h2 align="center">
      <p>Self Hosting Templates<p>
@@ -84,12 +89,24 @@
 &nbsp;&nbsp;&nbsp;[Uptime Kuma](docker/SelfHostingTemplates/uptimekuma.yml)&nbsp;&nbsp;&nbsp;
 </div>
 
+<h2 align="center"></h2>
+
 <h2 align="center">
      <p>Kubernetes<p>
 </h2>
 
 <div align="center">
 
-SOON
+&nbsp;&nbsp;&nbsp;[Overview of Features](kubernetes/Overview.md)&nbsp;&nbsp;&nbsp;
+</div>
 
+<div align="center">
+
+&nbsp;&nbsp;&nbsp;[Resource Management](kubernetes/ResourceManagement.md)&nbsp;&nbsp;&nbsp;|
+&nbsp;&nbsp;&nbsp;[Compute Resources](kubernetes/ComputeResources.md)&nbsp;&nbsp;&nbsp;|
+&nbsp;&nbsp;&nbsp;[Storage Resources]()&nbsp;&nbsp;&nbsp;|
+&nbsp;&nbsp;&nbsp;[Network Resources](kubernetes/NetworkingResources.md)&nbsp;&nbsp;&nbsp;|
+&nbsp;&nbsp;&nbsp;[Authentication](kubernetes/Authentication.md)&nbsp;&nbsp;&nbsp;|
+&nbsp;&nbsp;&nbsp;[Configuration Resources](kubernetes/ConfigurationResources.md)&nbsp;&nbsp;&nbsp;|
+&nbsp;&nbsp;&nbsp;[Health Management](kubernetes/HealthManagement.md)&nbsp;&nbsp;&nbsp;
 </div>
