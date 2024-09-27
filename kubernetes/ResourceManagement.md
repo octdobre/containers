@@ -95,16 +95,32 @@ To delete a namespace:
  kubectl delete namespace/deployment
 ```
 
-NAMESPACE
- kubectl get namespaces
+View all namespaces
+```
+kubectl get namespaces
+```
 
 Switch to a different namespace as WORKING namespace:
 ```
 kubens <mynamespace> -> switch to namespace
 ```
 
+## Configuration(Clusters, Namespaces)
 
+View current context and namespace
+```
+kubectl config get-contexts
+```
 
+Change namespace
+```
+kubectl config set-context --current --namespace=<name>
+```
+
+Change context
+```
+kubectl config use-context <name>
+```
 
 ## Documentation 
 
